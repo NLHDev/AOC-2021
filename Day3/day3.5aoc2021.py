@@ -25,11 +25,24 @@ for line in file:
         elif diag[i] == '1':
             onesum[i] += 1
 
+# Calculate the most common value in each bit position, save that as a new list
+common = []
+for i in range(len(zerosum)):
+    if (zerosum[i] > onesum[i]):
+        common.append('0')
+    else:
+        common.append('1')
+print(common)
+print(oxygen)
+
 # Calculate Oxygen Generator Rating
 oxygenproc = []
-for i in oxygen:
-    if i[:1] == '1':
-        oxygenproc.append(i)
+i = 0
+for line in oxygen:
+    temp = str(line[:1])
+    if temp == common[i]:
+        oxygenproc.append(temp)
+        print(oxygenproc)
+    i += 1
 
-print(oxygenproc)
 sys.exit(0)
